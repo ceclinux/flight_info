@@ -1,0 +1,4 @@
+flight.yml
+*.log
+*.gem
+*.swp

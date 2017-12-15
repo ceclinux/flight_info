@@ -1,0 +1,18 @@
+PATH
+  remote: .
+  specs:
+    flight_info (0.0.3)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler
+  flight_info!
+
+BUNDLED WITH
+   1.16.0
