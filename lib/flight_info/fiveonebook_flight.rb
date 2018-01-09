@@ -7,7 +7,7 @@ class FiveonebookFlight
   include Auth
 
   def self.build_query(args)
-    cabin_class, direct_flight, adult_num, child_num, depart_airport, arri_airport, depart_time, current_time = args.values_at(:cabin_class, :direct_flight, :adult_num, :child_num, :depart_airport, :arri_airport, :depart_time, :current_time)
+    cabin_class, direct_flight, adult_num, child_num, depart_airport, arri_airport, depart_time, current_time, return_airport, home_airport, back_time = args.values_at(:cabin_class, :direct_flight, :adult_num, :child_num, :depart_airport, :arri_airport, :depart_time, :current_time, :return_airport, :home_airport, :back_time)
     {
       agencyCode: Auth.username,
       rsIsGzip: true,
@@ -15,8 +15,7 @@ class FiveonebookFlight
       RQData: {
         cabinClass: cabin_class,
         directFlight: direct_flight,
-        airline: 'CA',
-        routeType: 'OW',
+        routeType: 'RT',
         resourceChannel: 1,
         passengerNumberVo: [{
           passengerType: 'ADT',
@@ -29,7 +28,12 @@ class FiveonebookFlight
           departureAirport: depart_airport,
           arrivalAirport: arri_airport,
           departureTime: depart_time
-        }]
+        },
+                      {
+                        departureAirport: return_airport,
+                        arrivalAirport: home_airport,
+                        departureTime: back_time
+                      }]
       }
     }
   end

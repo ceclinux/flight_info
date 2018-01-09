@@ -1,7 +1,6 @@
 require 'logger'
-require 'HTTParty'
+require 'httparty'
 require 'yaml'
-require 'pry'
 
 module AbstractFlight
   include HTTParty
